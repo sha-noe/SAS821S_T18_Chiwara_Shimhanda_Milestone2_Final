@@ -104,4 +104,4 @@ None of the original files shared a common ID key. Where synthetic linkage was u
 
 ## 7. Responsible AI disclosure
 
-Generative AI (Claude, Anthropic) was used to assist with code generation, data engineering scripts, and documentation drafting, per course policy Section 13. All outputs were reviewed, tested, and validated by the group before inclusion. Model results, correlations, and reported figures were independently verified by re-running scripts and inspecting outputs, not taken on faith.
+ AI (Claude) was used to assist in verifying if our synthetic data was generated properly and it has all qualities of a data set
