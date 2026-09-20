@@ -1,0 +1,22 @@
+INCIDENT TIMELINE - Claim CLM047902 / Customer CUST000598
+======================================================================
+Fraud_Flag: Yes  |  Fraud_Risk_Score: 99.74
+Claim_Type: Theft  |  Amount: N$ 35,289.60
+
+Chronological events:
+  [2025-02-07 20:35] IDENTITY/KYC CHANGE  Customer CUST000598 updated identity/KYC details (0 days before claim submission)
+  [2025-02-07 20:35] CLAIM SUBMITTED      Claim CLM047902 submitted - Theft, amount N$ 35,289.60
+  [2026-04-01 11:41] PORTAL LOGIN         Portal login - NEW/unrecognised device, unusual location
+  [2026-07-28 19:57] PORTAL LOGIN         Portal login - NEW/unrecognised device, unusual location, 3 failed attempt(s) before success
+  [2026-08-01 09:46] PORTAL LOGIN         Portal login - unusual location
+  [2026-08-13 08:03] PORTAL LOGIN         Portal login - NEW/unrecognised device, unusual location
+  [2026-08-20 20:35] STAFF ACCESS         Handled by Jason Collins (AGENT00923) - Insider_Risk_Label=0, Override: No override recorded
+  [2026-09-17 02:33] PORTAL LOGIN         Portal login - unusual location, 4 failed attempt(s) before success, off-hours login
+
+Affected entities:
+  Claimant: CUST000598
+  Claim: CLM047902
+  Staff: AGENT00923 (Jason Collins)
+
+Recommended response action:
+  -> ELEVATED REVIEW: identity change followed by new-device login. Require additional identity verification before approval.

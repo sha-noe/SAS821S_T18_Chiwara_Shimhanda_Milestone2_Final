@@ -1,0 +1,18 @@
+INCIDENT TIMELINE - Claim CLM039808 / Customer CUST009416
+======================================================================
+Fraud_Flag: Yes  |  Fraud_Risk_Score: 99.73
+Claim_Type: Property  |  Amount: N$ 6,958.91
+
+Chronological events:
+  [2026-05-03 20:35] STAFF ACCESS         Handled by Debbra Collins (AGENT00849) - Insider_Risk_Label=1, Override: Approved above authority limit
+  [2026-05-22 20:35] IDENTITY/KYC CHANGE  Customer CUST009416 updated identity/KYC details (18 days before claim submission)
+  [2026-06-09 20:35] CLAIM SUBMITTED      Claim CLM039808 submitted - Property, amount N$ 6,958.91
+  [2026-06-23 14:09] PORTAL LOGIN         Portal login - NEW/unrecognised device, 1 failed attempt(s) before success
+
+Affected entities:
+  Claimant: CUST009416
+  Claim: CLM039808
+  Staff: AGENT00849 (Debbra Collins)
+
+Recommended response action:
+  -> ESCALATE: identity change + new device + staff override present. Suspend claim payout pending manual investigation and re-verify claimant identity.

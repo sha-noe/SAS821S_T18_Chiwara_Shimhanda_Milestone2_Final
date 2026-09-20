@@ -1,0 +1,19 @@
+INCIDENT TIMELINE - Claim CLM032620 / Customer CUST009623
+======================================================================
+Fraud_Flag: Yes  |  Fraud_Risk_Score: 99.97
+Claim_Type: Accident  |  Amount: N$ 14,408.89
+
+Chronological events:
+  [2026-01-08 20:35] IDENTITY/KYC CHANGE  Customer CUST009623 updated identity/KYC details (4 days before claim submission)
+  [2026-01-12 20:35] CLAIM SUBMITTED      Claim CLM032620 submitted - Accident, amount N$ 14,408.89
+  [2026-07-26 20:35] STAFF ACCESS         Handled by Marvin Robinson (AGENT00650) - Insider_Risk_Label=0, Override: No override recorded
+  [2026-08-21 23:46] PORTAL LOGIN         Portal login - NEW/unrecognised device, unusual location, 2 failed attempt(s) before success, off-hours login
+  [2026-09-07 12:52] PORTAL LOGIN         Portal login - 4 failed attempt(s) before success
+
+Affected entities:
+  Claimant: CUST009623
+  Claim: CLM032620
+  Staff: AGENT00650 (Marvin Robinson)
+
+Recommended response action:
+  -> ELEVATED REVIEW: identity change followed by new-device login. Require additional identity verification before approval.

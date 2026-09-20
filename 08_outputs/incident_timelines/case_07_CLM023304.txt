@@ -1,0 +1,19 @@
+INCIDENT TIMELINE - Claim CLM023304 / Customer CUST007843
+======================================================================
+Fraud_Flag: Yes  |  Fraud_Risk_Score: 99.72
+Claim_Type: Theft  |  Amount: N$ 23,496.64
+
+Chronological events:
+  [2026-04-13 14:58] PORTAL LOGIN         Portal login - unusual location, 2 failed attempt(s) before success
+  [2026-05-30 20:35] IDENTITY/KYC CHANGE  Customer CUST007843 updated identity/KYC details (13 days before claim submission)
+  [2026-06-12 20:35] CLAIM SUBMITTED      Claim CLM023304 submitted - Theft, amount N$ 23,496.64
+  [2026-06-15 04:23] PORTAL LOGIN         Portal login - NEW/unrecognised device, unusual location, 4 failed attempt(s) before success, off-hours login
+  [2026-07-11 20:35] STAFF ACCESS         Handled by Boyd Christie (AGENT01057) - Insider_Risk_Label=1, Override: No override recorded
+
+Affected entities:
+  Claimant: CUST007843
+  Claim: CLM023304
+  Staff: AGENT01057 (Boyd Christie)
+
+Recommended response action:
+  -> ELEVATED REVIEW: identity change followed by new-device login. Require additional identity verification before approval.

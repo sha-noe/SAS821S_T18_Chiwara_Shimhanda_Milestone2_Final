@@ -1,0 +1,19 @@
+INCIDENT TIMELINE - Claim CLM031865 / Customer CUST016035
+======================================================================
+Fraud_Flag: Yes  |  Fraud_Risk_Score: 99.76
+Claim_Type: Accident  |  Amount: N$ 24,647.01
+
+Chronological events:
+  [2026-03-19 20:35] IDENTITY/KYC CHANGE  Customer CUST016035 updated identity/KYC details (0 days before claim submission)
+  [2026-03-19 20:35] CLAIM SUBMITTED      Claim CLM031865 submitted - Accident, amount N$ 24,647.01
+  [2026-03-20 13:03] PORTAL LOGIN         Portal login - NEW/unrecognised device, 4 failed attempt(s) before success
+  [2026-04-17 18:24] PORTAL LOGIN         Portal login - unusual location, 3 failed attempt(s) before success
+  [2026-09-16 20:35] STAFF ACCESS         Handled by Robert Talamantes (AGENT01147) - Insider_Risk_Label=0, Override: No override recorded
+
+Affected entities:
+  Claimant: CUST016035
+  Claim: CLM031865
+  Staff: AGENT01147 (Robert Talamantes)
+
+Recommended response action:
+  -> ELEVATED REVIEW: identity change followed by new-device login. Require additional identity verification before approval.

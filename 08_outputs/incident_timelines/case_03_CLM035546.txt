@@ -1,0 +1,20 @@
+INCIDENT TIMELINE - Claim CLM035546 / Customer CUST008138
+======================================================================
+Fraud_Flag: Yes  |  Fraud_Risk_Score: 99.81
+Claim_Type: Property  |  Amount: N$ 15,850.05
+
+Chronological events:
+  [2025-07-19 10:56] PORTAL LOGIN         Portal login - 3 failed attempt(s) before success
+  [2025-07-29 07:20] IDENTITY/KYC CHANGE  Customer CUST008138 updated identity/KYC details (19 days before claim submission)
+  [2025-08-17 07:20] CLAIM SUBMITTED      Claim CLM035546 submitted - Property, amount N$ 15,850.05
+  [2025-08-21 04:33] PORTAL LOGIN         Portal login - NEW/unrecognised device, unusual location, off-hours login
+  [2025-09-06 02:52] PORTAL LOGIN         Portal login - 3 failed attempt(s) before success, off-hours login
+  [2026-07-18 01:20] STAFF ACCESS         Handled by Jordon Morris (AGENT00272) - Insider_Risk_Label=0, Override: No override recorded
+
+Affected entities:
+  Claimant: CUST008138
+  Claim: CLM035546
+  Staff: AGENT00272 (Jordon Morris)
+
+Recommended response action:
+  -> ELEVATED REVIEW: identity change followed by new-device login. Require additional identity verification before approval.

@@ -1,0 +1,27 @@
+======================================================================
+T18 DATA LINKAGE - build report
+======================================================================
+[1] Loaded 50000 claims, 18409 unique customers
+[1] Wrote 02_data/processed/claims_identity_kyc_linked.csv (50000 rows, 21 cols)
+    Identity_Changed_Flag rate: fraud=0.41 vs non-fraud=0.10
+[1b] Loaded 12002 rows from insurance_fraud_data.csv for feature enrichment (no shared key with claims - matched conditionally on Fraud_Flag instead)
+[1b] Re-wrote 02_data/processed/claims_identity_kyc_linked.csv with 8 enrichment columns (29 cols total)
+     Enrichment columns added: Enriched_Address_Change_Flag, Enriched_Past_Claims_Count, Enriched_Witness_Present, Enriched_Police_Report_Filed, Enriched_Safety_Rating, Enriched_Days_Open, Enriched_Form_Defects_Count, Enriched_Claim_Channel
+     Enriched_Address_Change_Flag rate: fraud=0.59 vs non-fraud=0.57 (signal preserved from source dataset)
+[2] Loaded 1200 employees/agents
+[2] Loaded 118614 insider-threat behavioural records (6386 malicious)
+[2] Wrote 02_data/processed/staff_access_investigation_linked.csv (1200 rows, 37 cols)
+    Insider_Risk_Label positives: 133 of 1200 agents
+[3] Wrote 02_data/processed/document_metadata_ocr_text_linked.csv (220 rows, 12 cols)
+    Documents linked to identity-changed claims: 77 of 220
+    HIGH similarity flags: 53
+
+[4] JOIN VALIDATION
+    Claims -> Staff join match rate: 100.0%
+    Claims <-> Documents join: 220 matching rows (documents were generated FROM a claims sample, so this confirms the key works)
+    Documents -> Claims Customer_ID coverage: 220 of 220 documents resolve to a real Customer_ID in the claims table
+
+    Usable join keys:
+      Customer_ID   : claims_identity_kyc_linked.csv <-> document_metadata_ocr_text_linked.csv
+      Claim_ID      : claims_identity_kyc_linked.csv <-> document_metadata_ocr_text_linked.csv
+      Staff_ID      : staff_access_investigation_linked.csv <-> claims_identity_kyc_linked.csv (via Handled_By_Staff_ID)

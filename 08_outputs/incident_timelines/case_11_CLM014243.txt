@@ -1,0 +1,22 @@
+INCIDENT TIMELINE - Claim CLM014243 / Customer CUST010955
+======================================================================
+Fraud_Flag: Yes  |  Fraud_Risk_Score: 99.68
+Claim_Type: Property  |  Amount: N$ 30,894.66
+
+Chronological events:
+  [2025-05-04 20:35] IDENTITY/KYC CHANGE  Customer CUST010955 updated identity/KYC details (8 days before claim submission)
+  [2025-05-12 20:35] CLAIM SUBMITTED      Claim CLM014243 submitted - Property, amount N$ 30,894.66
+  [2026-06-13 18:45] PORTAL LOGIN         Portal login - NEW/unrecognised device, 1 failed attempt(s) before success
+  [2026-07-21 18:51] PORTAL LOGIN         Portal login - NEW/unrecognised device
+  [2026-08-10 20:35] STAFF ACCESS         Handled by Gene Duarte (AGENT00610) - Insider_Risk_Label=0, Override: No override recorded
+  [2026-08-13 11:23] PORTAL LOGIN         Portal login - routine
+  [2026-08-31 11:41] PORTAL LOGIN         Portal login - routine
+  [2026-09-17 18:40] PORTAL LOGIN         Portal login - NEW/unrecognised device, unusual location
+
+Affected entities:
+  Claimant: CUST010955
+  Claim: CLM014243
+  Staff: AGENT00610 (Gene Duarte)
+
+Recommended response action:
+  -> ELEVATED REVIEW: identity change followed by new-device login. Require additional identity verification before approval.

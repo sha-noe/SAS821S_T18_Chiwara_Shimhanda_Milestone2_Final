@@ -1,0 +1,26 @@
+======================================================================
+TEXT MINING / NLP - Document OCR Text
+======================================================================
+Loaded 220 documents
+
+Saved keyword frequency table to 06_text_mining/keyword_frequency_by_type.csv
+
+Flagged 48 of 220 documents containing suspicious terms (override, flagged, unusual, investigation, unscheduled, bypassed, discrepancy)
+Saved to 06_text_mining/suspicious_document_flags.csv
+
+--- Document type classification (TF-IDF + Logistic Regression) ---
+                    precision    recall  f1-score   support
+
+        claim_form       1.00      1.00      1.00        15
+       id_document       1.00      1.00      1.00        18
+investigation_note       1.00      1.00      1.00        12
+        kyc_update       1.00      1.00      1.00        10
+
+          accuracy                           1.00        55
+         macro avg       1.00      1.00      1.00        55
+      weighted avg       1.00      1.00      1.00        55
+
+
+NOTE - documented limitation: accuracy is very high (near 100%) because the OCR text in this dataset is synthetically generated from a small number of fixed templates per document type, giving each type a distinctive, noise-free vocabulary. Real scanned OCR text would include misreads, inconsistent formatting and overlapping vocabulary across document types, making this a genuinely harder classification problem in production. This result demonstrates the pipeline works correctly, not that document-type classification is a solved problem in general.
+
+Documents with BOTH a suspicious term AND a HIGH similarity flag: 9 (independent corroborating signals)

@@ -1,0 +1,20 @@
+INCIDENT TIMELINE - Claim CLM023363 / Customer CUST019161
+======================================================================
+Fraud_Flag: Yes  |  Fraud_Risk_Score: 99.82
+Claim_Type: Theft  |  Amount: N$ 43,797.77
+
+Chronological events:
+  [2025-09-27 20:35] IDENTITY/KYC CHANGE  Customer CUST019161 updated identity/KYC details (6 days before claim submission)
+  [2025-10-03 20:35] CLAIM SUBMITTED      Claim CLM023363 submitted - Theft, amount N$ 43,797.77
+  [2026-04-08 10:04] PORTAL LOGIN         Portal login - NEW/unrecognised device, 1 failed attempt(s) before success
+  [2026-05-02 20:35] STAFF ACCESS         Handled by Bernice Mcneeley (AGENT00391) - Insider_Risk_Label=0, Override: No override recorded
+  [2026-06-02 06:16] PORTAL LOGIN         Portal login - NEW/unrecognised device, unusual location
+  [2026-07-17 10:32] PORTAL LOGIN         Portal login - NEW/unrecognised device, 4 failed attempt(s) before success
+
+Affected entities:
+  Claimant: CUST019161
+  Claim: CLM023363
+  Staff: AGENT00391 (Bernice Mcneeley)
+
+Recommended response action:
+  -> ELEVATED REVIEW: identity change followed by new-device login. Require additional identity verification before approval.

@@ -1,0 +1,18 @@
+INCIDENT TIMELINE - Claim CLM032931 / Customer CUST008379
+======================================================================
+Fraud_Flag: Yes  |  Fraud_Risk_Score: 99.78
+Claim_Type: Accident  |  Amount: N$ 20,438.98
+
+Chronological events:
+  [2026-05-07 20:35] IDENTITY/KYC CHANGE  Customer CUST008379 updated identity/KYC details (21 days before claim submission)
+  [2026-05-28 20:35] CLAIM SUBMITTED      Claim CLM032931 submitted - Accident, amount N$ 20,438.98
+  [2026-06-11 21:25] PORTAL LOGIN         Portal login - unusual location, 4 failed attempt(s) before success
+  [2026-08-10 20:35] STAFF ACCESS         Handled by Mike Purnell (AGENT00767) - Insider_Risk_Label=1, Override: Bypassed secondary verification
+
+Affected entities:
+  Claimant: CUST008379
+  Claim: CLM032931
+  Staff: AGENT00767 (Mike Purnell)
+
+Recommended response action:
+  -> STANDARD REVIEW: flagged by model agreement; recommend manual review before final settlement decision.

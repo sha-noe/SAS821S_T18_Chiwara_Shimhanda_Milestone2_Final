@@ -1,0 +1,22 @@
+INCIDENT TIMELINE - Claim CLM023694 / Customer CUST015135
+======================================================================
+Fraud_Flag: Yes  |  Fraud_Risk_Score: 99.88
+Claim_Type: Accident  |  Amount: N$ 11,180.64
+
+Chronological events:
+  [2026-02-14 13:37] PORTAL LOGIN         Portal login - unusual location
+  [2026-02-20 20:35] IDENTITY/KYC CHANGE  Customer CUST015135 updated identity/KYC details (5 days before claim submission)
+  [2026-02-25 20:35] CLAIM SUBMITTED      Claim CLM023694 submitted - Accident, amount N$ 11,180.64
+  [2026-03-01 20:57] PORTAL LOGIN         Portal login - NEW/unrecognised device, 3 failed attempt(s) before success
+  [2026-03-03 14:04] PORTAL LOGIN         Portal login - NEW/unrecognised device, unusual location
+  [2026-03-11 17:02] PORTAL LOGIN         Portal login - unusual location
+  [2026-04-01 15:22] PORTAL LOGIN         Portal login - NEW/unrecognised device
+  [2026-04-02 20:35] STAFF ACCESS         Handled by Martin Murphy (AGENT00721) - Insider_Risk_Label=0, Override: No override recorded
+
+Affected entities:
+  Claimant: CUST015135
+  Claim: CLM023694
+  Staff: AGENT00721 (Martin Murphy)
+
+Recommended response action:
+  -> ELEVATED REVIEW: identity change followed by new-device login. Require additional identity verification before approval.

@@ -1,0 +1,18 @@
+INCIDENT TIMELINE - Claim CLM022503 / Customer CUST001557
+======================================================================
+Fraud_Flag: Yes  |  Fraud_Risk_Score: 99.72
+Claim_Type: Medical  |  Amount: N$ 6,731.31
+
+Chronological events:
+  [2026-06-30 20:35] STAFF ACCESS         Handled by Cynthia Hines (AGENT01141) - Insider_Risk_Label=0, Override: No override recorded
+  [2026-07-06 20:35] IDENTITY/KYC CHANGE  Customer CUST001557 updated identity/KYC details (3 days before claim submission)
+  [2026-07-09 20:35] CLAIM SUBMITTED      Claim CLM022503 submitted - Medical, amount N$ 6,731.31
+  [2026-08-10 03:07] PORTAL LOGIN         Portal login - NEW/unrecognised device, off-hours login
+
+Affected entities:
+  Claimant: CUST001557
+  Claim: CLM022503
+  Staff: AGENT01141 (Cynthia Hines)
+
+Recommended response action:
+  -> ELEVATED REVIEW: identity change followed by new-device login. Require additional identity verification before approval.

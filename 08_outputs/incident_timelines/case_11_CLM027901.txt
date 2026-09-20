@@ -1,0 +1,22 @@
+INCIDENT TIMELINE - Claim CLM027901 / Customer CUST010950
+======================================================================
+Fraud_Flag: Yes  |  Fraud_Risk_Score: 99.6
+Claim_Type: Theft  |  Amount: N$ 17,703.38
+
+Chronological events:
+  [2024-10-29 01:00] PORTAL LOGIN         Portal login - unusual location, off-hours login
+  [2024-11-03 07:20] IDENTITY/KYC CHANGE  Customer CUST010950 updated identity/KYC details (9 days before claim submission)
+  [2024-11-09 16:12] PORTAL LOGIN         Portal login - NEW/unrecognised device, 1 failed attempt(s) before success
+  [2024-11-12 07:20] CLAIM SUBMITTED      Claim CLM027901 submitted - Theft, amount N$ 17,703.38
+  [2024-11-12 19:37] PORTAL LOGIN         Portal login - routine
+  [2024-11-21 14:42] PORTAL LOGIN         Portal login - NEW/unrecognised device, unusual location
+  [2024-11-30 07:54] PORTAL LOGIN         Portal login - NEW/unrecognised device
+  [2024-12-29 14:20] STAFF ACCESS         Handled by Dawn Adams (AGENT00970) - Insider_Risk_Label=0, Override: No override recorded
+
+Affected entities:
+  Claimant: CUST010950
+  Claim: CLM027901
+  Staff: AGENT00970 (Dawn Adams)
+
+Recommended response action:
+  -> ELEVATED REVIEW: identity change followed by new-device login. Require additional identity verification before approval.

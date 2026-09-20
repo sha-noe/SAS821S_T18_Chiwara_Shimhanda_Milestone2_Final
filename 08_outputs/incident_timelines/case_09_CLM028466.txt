@@ -1,0 +1,18 @@
+INCIDENT TIMELINE - Claim CLM028466 / Customer CUST015468
+======================================================================
+Fraud_Flag: Yes  |  Fraud_Risk_Score: 99.7
+Claim_Type: Accident  |  Amount: N$ 48,808.06
+
+Chronological events:
+  [2025-07-13 20:35] IDENTITY/KYC CHANGE  Customer CUST015468 updated identity/KYC details (9 days before claim submission)
+  [2025-07-22 20:35] CLAIM SUBMITTED      Claim CLM028466 submitted - Accident, amount N$ 48,808.06
+  [2026-06-16 04:16] PORTAL LOGIN         Portal login - NEW/unrecognised device, off-hours login
+  [2026-08-30 20:35] STAFF ACCESS         Handled by Rowena Nakken (AGENT00326) - Insider_Risk_Label=0, Override: No override recorded
+
+Affected entities:
+  Claimant: CUST015468
+  Claim: CLM028466
+  Staff: AGENT00326 (Rowena Nakken)
+
+Recommended response action:
+  -> ELEVATED REVIEW: identity change followed by new-device login. Require additional identity verification before approval.

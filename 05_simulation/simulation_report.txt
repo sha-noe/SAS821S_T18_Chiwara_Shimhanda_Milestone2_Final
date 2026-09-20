@@ -1,0 +1,39 @@
+======================================================================
+SECURITY CONTROL SIMULATION - Monte Carlo, 3 scenarios, 1000 iterations each
+======================================================================
+
+Total claims: 50,000
+Total fraud value in dataset: N$ 310,764,765
+
+--- Scenario: A - No control (baseline) ---
+  Claims reviewed: 0  (0.0% of all claims)
+  Fraud value available in this subset: N$ 0
+  Mean fraud N$ caught (across 1000 runs): N$ 0
+  Mean review cost: N$ 0
+  Mean net benefit: N$ 0  (90% range: N$ 0 to N$ 0)
+  Mean % of total fraud caught: 0.0%
+
+--- Scenario: B - Identity-change trigger ---
+  Claims reviewed: 8,966  (17.9% of all claims)
+  Fraud value available in this subset: N$ 129,888,056
+  Mean fraud N$ caught (across 1000 runs): N$ 91,777,041
+  Mean review cost: N$ 399,786
+  Mean net benefit: N$ 91,377,254  (90% range: N$ 58,361,085 to N$ 118,284,603)
+  Mean % of total fraud caught: 29.5%
+
+--- Scenario: C - Combined signal trigger (identity change + anomaly) ---
+  Claims reviewed: 1,404  (2.8% of all claims)
+  Fraud value available in this subset: N$ 24,467,699
+  Mean fraud N$ caught (across 1000 runs): N$ 20,093,315
+  Mean review cost: N$ 62,150
+  Mean net benefit: N$ 20,031,166  (90% range: N$ 15,113,101 to N$ 23,489,602)
+  Mean % of total fraud caught: 6.5%
+
+Wrote 3000 simulation rows to 05_simulation/simulation_results.csv
+Saved comparison chart to 08_outputs/model_charts/16_simulation_comparison.png
+
+--- RECOMMENDATION ---
+Highest TOTAL net benefit: B - Identity-change trigger (reviews the most claims, so captures the most absolute fraud value)
+Highest net benefit PER CLAIM REVIEWED: C - Combined signal trigger (identity change + anomaly) (N$ 14,267 per case, vs N$ 10,192 for Scenario B)
+
+Interpretation: Scenario B catches more total fraud value because it reviews a much larger pool of claims (17.9% of all claims). Scenario C is far more EFFICIENT per review - it combines two independent signals (identity change + unsupervised anomaly flag) to review only 2.6% of claims - making it the better choice if investigator time/capacity is the binding constraint, while Scenario B is better if the goal is maximising total fraud value recovered regardless of review workload.

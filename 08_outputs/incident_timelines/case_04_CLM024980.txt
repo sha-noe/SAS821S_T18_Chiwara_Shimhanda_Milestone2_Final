@@ -1,0 +1,23 @@
+INCIDENT TIMELINE - Claim CLM024980 / Customer CUST007616
+======================================================================
+Fraud_Flag: Yes  |  Fraud_Risk_Score: 99.82
+Claim_Type: Theft  |  Amount: N$ 18,014.56
+
+Chronological events:
+  [2025-04-03 12:26] PORTAL LOGIN         Portal login - unusual location, 1 failed attempt(s) before success
+  [2025-04-11 20:35] IDENTITY/KYC CHANGE  Customer CUST007616 updated identity/KYC details (19 days before claim submission)
+  [2025-04-13 13:59] PORTAL LOGIN         Portal login - NEW/unrecognised device
+  [2025-04-25 08:51] PORTAL LOGIN         Portal login - NEW/unrecognised device, unusual location, 4 failed attempt(s) before success
+  [2025-04-30 20:35] CLAIM SUBMITTED      Claim CLM024980 submitted - Theft, amount N$ 18,014.56
+  [2025-05-06 04:49] PORTAL LOGIN         Portal login - NEW/unrecognised device, 2 failed attempt(s) before success, off-hours login
+  [2025-05-08 23:47] PORTAL LOGIN         Portal login - NEW/unrecognised device, 4 failed attempt(s) before success, off-hours login
+  [2025-05-09 09:27] PORTAL LOGIN         Portal login - NEW/unrecognised device
+  [2026-06-01 20:35] STAFF ACCESS         Handled by Luis Knutsen (AGENT00916) - Insider_Risk_Label=1, Override: Unscheduled record access
+
+Affected entities:
+  Claimant: CUST007616
+  Claim: CLM024980
+  Staff: AGENT00916 (Luis Knutsen)
+
+Recommended response action:
+  -> ESCALATE: identity change + new device + staff override present. Suspend claim payout pending manual investigation and re-verify claimant identity.

@@ -1,0 +1,18 @@
+INCIDENT TIMELINE - Claim CLM022710 / Customer CUST007767
+======================================================================
+Fraud_Flag: Yes  |  Fraud_Risk_Score: 99.72
+Claim_Type: Property  |  Amount: N$ 33,885.52
+
+Chronological events:
+  [2025-02-26 07:20] IDENTITY/KYC CHANGE  Customer CUST007767 updated identity/KYC details (1 days before claim submission)
+  [2025-02-27 07:20] CLAIM SUBMITTED      Claim CLM022710 submitted - Property, amount N$ 33,885.52
+  [2025-03-11 01:28] PORTAL LOGIN         Portal login - unusual location, off-hours login
+  [2025-07-16 20:20] STAFF ACCESS         Handled by Bettie Greene (AGENT00918) - Insider_Risk_Label=0, Override: No override recorded
+
+Affected entities:
+  Claimant: CUST007767
+  Claim: CLM022710
+  Staff: AGENT00918 (Bettie Greene)
+
+Recommended response action:
+  -> STANDARD REVIEW: flagged by model agreement; recommend manual review before final settlement decision.

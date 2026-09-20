@@ -1,0 +1,18 @@
+INCIDENT TIMELINE - Claim CLM044720 / Customer CUST016259
+======================================================================
+Fraud_Flag: Yes  |  Fraud_Risk_Score: 99.72
+Claim_Type: Theft  |  Amount: N$ 27,863.77
+
+Chronological events:
+  [2025-01-09 20:35] IDENTITY/KYC CHANGE  Customer CUST016259 updated identity/KYC details (21 days before claim submission)
+  [2025-01-30 20:35] CLAIM SUBMITTED      Claim CLM044720 submitted - Theft, amount N$ 27,863.77
+  [2026-05-30 00:47] PORTAL LOGIN         Portal login - NEW/unrecognised device, 4 failed attempt(s) before success, off-hours login
+  [2026-09-13 20:35] STAFF ACCESS         Handled by Leslie Lee (AGENT00063) - Insider_Risk_Label=0, Override: Approved above authority limit
+
+Affected entities:
+  Claimant: CUST016259
+  Claim: CLM044720
+  Staff: AGENT00063 (Leslie Lee)
+
+Recommended response action:
+  -> ESCALATE: identity change + new device + staff override present. Suspend claim payout pending manual investigation and re-verify claimant identity.

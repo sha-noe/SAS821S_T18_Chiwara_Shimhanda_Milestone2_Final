@@ -1,0 +1,18 @@
+INCIDENT TIMELINE - Claim CLM011138 / Customer CUST000860
+======================================================================
+Fraud_Flag: Yes  |  Fraud_Risk_Score: 99.97
+Claim_Type: Medical  |  Amount: N$ 16,596.46
+
+Chronological events:
+  [2024-12-14 15:34] PORTAL LOGIN         Portal login - unusual location, 3 failed attempt(s) before success
+  [2024-12-21 07:20] IDENTITY/KYC CHANGE  Customer CUST000860 updated identity/KYC details (8 days before claim submission)
+  [2024-12-29 07:20] CLAIM SUBMITTED      Claim CLM011138 submitted - Medical, amount N$ 16,596.46
+  [2025-02-17 18:20] STAFF ACCESS         Handled by Michael Reed (AGENT00582) - Insider_Risk_Label=0, Override: No override recorded
+
+Affected entities:
+  Claimant: CUST000860
+  Claim: CLM011138
+  Staff: AGENT00582 (Michael Reed)
+
+Recommended response action:
+  -> STANDARD REVIEW: flagged by model agreement; recommend manual review before final settlement decision.

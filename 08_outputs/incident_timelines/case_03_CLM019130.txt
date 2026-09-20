@@ -1,0 +1,18 @@
+INCIDENT TIMELINE - Claim CLM019130 / Customer CUST013401
+======================================================================
+Fraud_Flag: Yes  |  Fraud_Risk_Score: 99.86
+Claim_Type: Medical  |  Amount: N$ 3,888.29
+
+Chronological events:
+  [2024-11-12 20:35] IDENTITY/KYC CHANGE  Customer CUST013401 updated identity/KYC details (10 days before claim submission)
+  [2024-11-22 20:35] CLAIM SUBMITTED      Claim CLM019130 submitted - Medical, amount N$ 3,888.29
+  [2024-12-19 17:40] PORTAL LOGIN         Portal login - NEW/unrecognised device, 4 failed attempt(s) before success
+  [2026-04-29 20:35] STAFF ACCESS         Handled by Jonathan Ortiz (AGENT00739) - Insider_Risk_Label=0, Override: Approved above authority limit
+
+Affected entities:
+  Claimant: CUST013401
+  Claim: CLM019130
+  Staff: AGENT00739 (Jonathan Ortiz)
+
+Recommended response action:
+  -> ESCALATE: identity change + new device + staff override present. Suspend claim payout pending manual investigation and re-verify claimant identity.

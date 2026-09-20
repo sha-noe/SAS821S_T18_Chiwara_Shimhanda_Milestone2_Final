@@ -1,0 +1,22 @@
+INCIDENT TIMELINE - Claim CLM023551 / Customer CUST004927
+======================================================================
+Fraud_Flag: Yes  |  Fraud_Risk_Score: 99.68
+Claim_Type: Property  |  Amount: N$ 14,970.11
+
+Chronological events:
+  [2024-10-16 20:35] IDENTITY/KYC CHANGE  Customer CUST004927 updated identity/KYC details (19 days before claim submission)
+  [2024-11-04 20:35] CLAIM SUBMITTED      Claim CLM023551 submitted - Property, amount N$ 14,970.11
+  [2026-03-24 20:35] STAFF ACCESS         Handled by David Zuluaga (AGENT00716) - Insider_Risk_Label=0, Override: No override recorded
+  [2026-06-16 21:32] PORTAL LOGIN         Portal login - NEW/unrecognised device
+  [2026-07-10 14:09] PORTAL LOGIN         Portal login - NEW/unrecognised device
+  [2026-07-20 20:45] PORTAL LOGIN         Portal login - NEW/unrecognised device, unusual location
+  [2026-08-21 09:54] PORTAL LOGIN         Portal login - NEW/unrecognised device
+  [2026-09-13 12:40] PORTAL LOGIN         Portal login - routine
+
+Affected entities:
+  Claimant: CUST004927
+  Claim: CLM023551
+  Staff: AGENT00716 (David Zuluaga)
+
+Recommended response action:
+  -> ELEVATED REVIEW: identity change followed by new-device login. Require additional identity verification before approval.

@@ -1,0 +1,18 @@
+INCIDENT TIMELINE - Claim CLM020941 / Customer CUST016634
+======================================================================
+Fraud_Flag: Yes  |  Fraud_Risk_Score: 99.72
+Claim_Type: Accident  |  Amount: N$ 20,721.39
+
+Chronological events:
+  [2026-07-14 20:35] STAFF ACCESS         Handled by Patricia Taylor (AGENT00595) - Insider_Risk_Label=0, Override: No override recorded
+  [2026-08-19 20:35] IDENTITY/KYC CHANGE  Customer CUST016634 updated identity/KYC details (3 days before claim submission)
+  [2026-08-22 00:03] PORTAL LOGIN         Portal login - NEW/unrecognised device, 4 failed attempt(s) before success, off-hours login
+  [2026-08-22 20:35] CLAIM SUBMITTED      Claim CLM020941 submitted - Accident, amount N$ 20,721.39
+
+Affected entities:
+  Claimant: CUST016634
+  Claim: CLM020941
+  Staff: AGENT00595 (Patricia Taylor)
+
+Recommended response action:
+  -> ELEVATED REVIEW: identity change followed by new-device login. Require additional identity verification before approval.

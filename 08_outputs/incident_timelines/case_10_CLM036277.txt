@@ -1,0 +1,20 @@
+INCIDENT TIMELINE - Claim CLM036277 / Customer CUST005542
+======================================================================
+Fraud_Flag: Yes  |  Fraud_Risk_Score: 99.69
+Claim_Type: Property  |  Amount: N$ 36,036.10
+
+Chronological events:
+  [2026-05-20 20:35] STAFF ACCESS         Handled by Edward Hesse (AGENT01026) - Insider_Risk_Label=0, Override: No override recorded
+  [2026-05-29 21:09] PORTAL LOGIN         Portal login - unusual location
+  [2026-07-17 23:14] PORTAL LOGIN         Portal login - 3 failed attempt(s) before success, off-hours login
+  [2026-08-19 20:35] IDENTITY/KYC CHANGE  Customer CUST005542 updated identity/KYC details (8 days before claim submission)
+  [2026-08-27 20:35] CLAIM SUBMITTED      Claim CLM036277 submitted - Property, amount N$ 36,036.10
+  [2026-09-19 13:41] PORTAL LOGIN         Portal login - NEW/unrecognised device, unusual location, 4 failed attempt(s) before success
+
+Affected entities:
+  Claimant: CUST005542
+  Claim: CLM036277
+  Staff: AGENT01026 (Edward Hesse)
+
+Recommended response action:
+  -> ELEVATED REVIEW: identity change followed by new-device login. Require additional identity verification before approval.

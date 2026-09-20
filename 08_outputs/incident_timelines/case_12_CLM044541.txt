@@ -1,0 +1,18 @@
+INCIDENT TIMELINE - Claim CLM044541 / Customer CUST013341
+======================================================================
+Fraud_Flag: Yes  |  Fraud_Risk_Score: 99.53
+Claim_Type: Medical  |  Amount: N$ 7,323.81
+
+Chronological events:
+  [2025-02-11 07:20] STAFF ACCESS         Handled by William See (AGENT01089) - Insider_Risk_Label=0, Override: No override recorded
+  [2026-06-27 07:20] IDENTITY/KYC CHANGE  Customer CUST013341 updated identity/KYC details (18 days before claim submission)
+  [2026-07-15 07:20] CLAIM SUBMITTED      Claim CLM044541 submitted - Medical, amount N$ 7,323.81
+  [2026-07-20 07:54] PORTAL LOGIN         Portal login - NEW/unrecognised device, 2 failed attempt(s) before success
+
+Affected entities:
+  Claimant: CUST013341
+  Claim: CLM044541
+  Staff: AGENT01089 (William See)
+
+Recommended response action:
+  -> ELEVATED REVIEW: identity change followed by new-device login. Require additional identity verification before approval.

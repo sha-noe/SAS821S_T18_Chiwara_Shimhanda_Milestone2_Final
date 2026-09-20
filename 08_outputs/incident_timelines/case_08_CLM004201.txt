@@ -1,0 +1,23 @@
+INCIDENT TIMELINE - Claim CLM004201 / Customer CUST019154
+======================================================================
+Fraud_Flag: Yes  |  Fraud_Risk_Score: 99.74
+Claim_Type: Theft  |  Amount: N$ 36,087.87
+
+Chronological events:
+  [2025-08-23 20:35] IDENTITY/KYC CHANGE  Customer CUST019154 updated identity/KYC details (8 days before claim submission)
+  [2025-08-25 12:03] PORTAL LOGIN         Portal login - NEW/unrecognised device, unusual location
+  [2025-08-28 07:54] PORTAL LOGIN         Portal login - NEW/unrecognised device, 1 failed attempt(s) before success
+  [2025-08-31 20:35] CLAIM SUBMITTED      Claim CLM004201 submitted - Theft, amount N$ 36,087.87
+  [2025-09-07 14:14] PORTAL LOGIN         Portal login - routine
+  [2025-09-10 16:19] PORTAL LOGIN         Portal login - NEW/unrecognised device, unusual location
+  [2025-09-25 08:40] PORTAL LOGIN         Portal login - routine
+  [2025-09-29 10:03] PORTAL LOGIN         Portal login - routine
+  [2026-06-06 20:35] STAFF ACCESS         Handled by Randall Gutierrez (AGENT00305) - Insider_Risk_Label=0, Override: No override recorded
+
+Affected entities:
+  Claimant: CUST019154
+  Claim: CLM004201
+  Staff: AGENT00305 (Randall Gutierrez)
+
+Recommended response action:
+  -> ELEVATED REVIEW: identity change followed by new-device login. Require additional identity verification before approval.

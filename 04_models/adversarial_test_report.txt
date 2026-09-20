@@ -1,0 +1,35 @@
+======================================================================
+ADVERSARIAL AND ROBUSTNESS TESTING
+Attacking the already-trained Random Forest model (no retraining)
+======================================================================
+Loaded trained model with 25 features
+Rebuilt identical test set: 12500 rows (same SEED, same cleaning, same split as Section 5)
+
+--- BASELINE ---
+  Precision=0.586  Recall=0.412  F1=0.483  ROC-AUC=0.723
+
+--- TEST 1: FEATURE MASKING (Identity_Changed_Flag withheld) ---
+  Precision=1.000  Recall=0.000  F1=0.001  ROC-AUC=0.621
+  Recall dropped by 0.411 (99.9% relative decrease) when the dominant feature is withheld.
+  INTERPRETATION: Model is heavily reliant on a single feature - a real robustness concern.
+
+--- TEST 2: SYNTHETIC EVASION (disguised fraud claims) ---
+  3107 actual fraud claims in test set selected for disguise
+  Disguised fraud claims still caught: 0.0% (all 3107 rows here are true fraud by construction)
+  INTERPRETATION: Model shows meaningful vulnerability to disguised claims - detection drops substantially.
+
+--- TEST 3: DISTRIBUTIONAL DRIFT (+35% claim/premium inflation) ---
+  Precision=0.587  Recall=0.409  F1=0.482  ROC-AUC=0.715
+  ROC-AUC changed by +0.008 under +35% claim/premium inflation.
+  INTERPRETATION: Model is stable under this level of drift - no immediate retraining need.
+
+Saved results to 04_models/adversarial_test_results.csv
+
+======================================================================
+SUMMARY
+======================================================================
+Test 1 (feature masking):      recall fell from 0.412 to 0.000
+Test 2 (synthetic evasion):    0.0% of disguised fraud claims still caught
+Test 3 (distributional drift): ROC-AUC changed from 0.723 to 0.715
+
+Overall robustness verdict: the model relies heavily on Identity_Changed_Flag (consistent with its 44.7% feature importance in Section 5), which is both its greatest strength (a genuine, strong signal) and its main vulnerability (a single point of failure an adversary could target by concealing identity changes). Recommended mitigation: maintain the unsupervised anomaly model (Section 6) as a parallel, independent detection layer, since it does not depend on this feature and remains a check against exactly this evasion strategy.
