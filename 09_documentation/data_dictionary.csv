@@ -1,0 +1,91 @@
+﻿Dataset,Field Name,Data Type,Description,Example Value,Valid Values / Range,Missing (%),Key / Join Role,Notes
+Claims_KYC (claims_identity_kyc_linked.csv),Claim_ID,String,Unique identifier for the claim.,CLM000001,Pattern CLM + 6 digits,0%,Primary key,Also used as join key to Documents_OCR.
+Claims_KYC (claims_identity_kyc_linked.csv),Customer_ID,String,Unique identifier for the claimant/policyholder.,CUST018311,Pattern CUST + 6 digits,0%,"Join key -> Documents_OCR, Portal_Auth",One customer can have multiple claims.
+Claims_KYC (claims_identity_kyc_linked.csv),Policy_Number,String,Insurance policy number linked to the claim.,POL0285346,Pattern POL + 7 digits,0%,,
+Claims_KYC (claims_identity_kyc_linked.csv),Age,Integer,Age of the claimant in years.,57,18-90 (approx.),0%,,
+Claims_KYC (claims_identity_kyc_linked.csv),Gender,String (categorical),Claimant's recorded gender.,Male,"Male, Female",0%,,
+Claims_KYC (claims_identity_kyc_linked.csv),Region,String (categorical),Geographic region of the claimant.,West,"North, South, East, West",0%,,
+Claims_KYC (claims_identity_kyc_linked.csv),Policy_Type,String (categorical),Type of insurance policy held.,Home,"Home, Health, Life, Auto",0%,,
+Claims_KYC (claims_identity_kyc_linked.csv),Premium_Amount,Float,Annual/periodic premium paid by the customer (N$).,3264.23,"~ 200 - 5,000",0%,,
+Claims_KYC (claims_identity_kyc_linked.csv),Coverage_Amount,Float,Total coverage amount of the policy (N$).,56380.37,"~ 5,000 - 100,000",0%,,
+Claims_KYC (claims_identity_kyc_linked.csv),Claim_Amount,Float,Amount claimed by the customer (N$).,8140.64,"~ 500 - 50,000",0%,,
+Claims_KYC (claims_identity_kyc_linked.csv),Claim_Type,String (categorical),Category of the insurance claim.,Accident,"Accident, Property, Theft, Medical",0%,,
+Claims_KYC (claims_identity_kyc_linked.csv),Credit_Score,Integer,Claimant's credit score.,529,300 - 849,0%,,
+Claims_KYC (claims_identity_kyc_linked.csv),Fraud_Risk_Score,Float,Pre-computed composite fraud-risk score for the claim.,91.93,0 - 100,0%,,Descriptive/legacy score from the source dataset; not the model's output score.
+Claims_KYC (claims_identity_kyc_linked.csv),Fraud_Flag,String (binary label),Ground-truth label: whether the claim was confirmed fraudulent.,Yes,"Yes, No",0%,Target variable (supervised model),Overall fraud rate ~24.9%.
+Claims_KYC (claims_identity_kyc_linked.csv),Claim_Status,String (categorical),Current administrative status of the claim.,Under Review,"Approved, Rejected, Under Review",0%,,
+Claims_KYC (claims_identity_kyc_linked.csv),Settlement_Amount,Float,Amount actually settled/paid out on the claim (N$).,4330.86,>= 0,0%,,
+Claims_KYC (claims_identity_kyc_linked.csv),Claim_Date,Datetime (string),Date and time the claim was filed.,2026-07-03 20:35:26,Timestamp,0%,,Stored as text; parse with pandas.to_datetime.
+Claims_KYC (claims_identity_kyc_linked.csv),Handled_By_Staff_ID,String,ID of the staff member/agent who processed the claim.,AGENT00933,Pattern AGENT + 5 digits,0%,Join key -> Staff_Access (Staff_ID),100% match rate confirmed in linkage_summary.txt.
+Claims_KYC (claims_identity_kyc_linked.csv),Identity_Changed_Flag,Integer (binary),Whether the claimant's identity/KYC profile was changed before the claim.,1,"0 = No, 1 = Yes",0%,Key predictive feature,Dominant feature in the fraud model (~46% importance).
+Claims_KYC (claims_identity_kyc_linked.csv),KYC_Update_Date,Datetime (string),"Date of the most recent KYC/identity update, if one occurred.",2024-12-19 20:35:26,Timestamp or blank,82.1%,,Only populated when Identity_Changed_Flag = 1 (blank = no update).
+Claims_KYC (claims_identity_kyc_linked.csv),Days_KYC_To_Claim,Float,Number of days between the KYC update and the claim date.,21.0,>= 0 or blank,82.1%,,Only populated when Identity_Changed_Flag = 1.
+Claims_KYC (claims_identity_kyc_linked.csv),Enriched_Address_Change_Flag,Integer (binary),Whether the claimant's address changed recently (enrichment feature).,1,"0 = No, 1 = Yes",0%,,"From conditional enrichment match, not a real per-row join - see linkage_summary.txt."
+Claims_KYC (claims_identity_kyc_linked.csv),Enriched_Past_Claims_Count,Integer,Number of previous claims filed by the customer (enrichment feature).,2,0 - ~10,0%,,See enrichment note above.
+Claims_KYC (claims_identity_kyc_linked.csv),Enriched_Witness_Present,String / Integer,Whether a witness was present for the claimed incident.,1,"0, 1, or '*' (placeholder)",0%,,"'*' values (0.68% of rows) are a data-quality artefact from the source file, imputed with the column mode during modelling."
+Claims_KYC (claims_identity_kyc_linked.csv),Enriched_Police_Report_Filed,Integer (binary),Whether a police report was filed for the claim.,1,"0 = No, 1 = Yes",0%,,See enrichment note above.
+Claims_KYC (claims_identity_kyc_linked.csv),Enriched_Safety_Rating,Integer,Safety rating associated with the claim/asset (enrichment feature).,56,0 - 100 (approx.),0%,,See enrichment note above.
+Claims_KYC (claims_identity_kyc_linked.csv),Enriched_Days_Open,Float,Number of days the claim file has been open.,8.41,>= 0,0%,,See enrichment note above.
+Claims_KYC (claims_identity_kyc_linked.csv),Enriched_Form_Defects_Count,Integer,Number of defects/errors found on the claim form.,3,0 - ~15,0%,,See enrichment note above.
+Claims_KYC (claims_identity_kyc_linked.csv),Enriched_Claim_Channel,String (categorical),Channel through which the claim was submitted.,Phone,"Phone, Online, Broker",0%,,See enrichment note above.
+Staff_Access (staff_access_investigation_linked.csv),Staff_ID,String,Unique identifier for the staff member/agent.,AGENT00001,Pattern AGENT + 5 digits,0%,Primary key,Joins to Claims_KYC via Handled_By_Staff_ID.
+Staff_Access (staff_access_investigation_linked.csv),Staff_Name,String,Full name of the staff member.,Ray Johns,Free text,0%,,Synthetic/faker-generated name for privacy.
+Staff_Access (staff_access_investigation_linked.csv),DATE_OF_JOINING,Date (string),Date the employee joined the company.,1993-06-05,Date,0%,,
+Staff_Access (staff_access_investigation_linked.csv),ADDRESS_LINE1,String,First line of the employee's address.,1402 Maggies Way,Free text,0%,,Synthetic address; not real PII.
+Staff_Access (staff_access_investigation_linked.csv),ADDRESS_LINE2,String,Second line of the employee's address (unit/suite).,#306,Free text or blank,85.1%,,Blank when no secondary address line exists.
+Staff_Access (staff_access_investigation_linked.csv),CITY,String,City of residence.,Waterbury Center,Free text,0.6%,,
+Staff_Access (staff_access_investigation_linked.csv),STATE,String,State/province abbreviation.,VT,2-letter code,0%,,
+Staff_Access (staff_access_investigation_linked.csv),POSTAL_CODE,Integer,Postal/ZIP code.,5677,Numeric,0%,,
+Staff_Access (staff_access_investigation_linked.csv),claims_handled,Float,Total number of claims this staff member has handled.,28.0,>= 0,0%,,Derived by aggregating Claims_KYC on Handled_By_Staff_ID.
+Staff_Access (staff_access_investigation_linked.csv),fraud_claims_handled,Float,Number of those claims that were confirmed fraudulent.,8.0,>= 0,0%,,Derived; see above.
+Staff_Access (staff_access_investigation_linked.csv),fraud_rate_handled,Float,Proportion of the staff member's claims that were fraudulent.,0.286,0.0 - 1.0,0%,,Equals fraud_claims_handled divided by claims_handled.
+Staff_Access (staff_access_investigation_linked.csv),employee_department,String (categorical),Department the employee belongs to.,Engineering Department,"e.g. Engineering, Legal, IT, Marketing",0%,,
+Staff_Access (staff_access_investigation_linked.csv),employee_campus,String (categorical),Office campus/site of the employee.,Campus B,"Campus A, B, C",0%,,
+Staff_Access (staff_access_investigation_linked.csv),employee_position,String,Job title/position of the employee.,Head of Engineering,Free text,0%,,
+Staff_Access (staff_access_investigation_linked.csv),employee_seniority_years,Integer,Years of seniority/experience at the company.,8,0 - 30 (approx.),0%,,
+Staff_Access (staff_access_investigation_linked.csv),is_contractor,Integer (binary),Whether the person is a contractor rather than a permanent employee.,0,"0 = Permanent, 1 = Contractor",0%,,
+Staff_Access (staff_access_investigation_linked.csv),employee_classification,Integer (categorical code),Internal classification/clearance tier of the employee.,2,1 - 4,0%,,Higher tiers imply broader system access in the source dataset's schema.
+Staff_Access (staff_access_investigation_linked.csv),has_foreign_citizenship,Integer (binary),Whether the employee holds foreign citizenship.,0,"0 = No, 1 = Yes",0%,,Insider-threat behavioural indicator.
+Staff_Access (staff_access_investigation_linked.csv),has_criminal_record,Integer (binary),Whether the employee has a recorded criminal history.,0,"0 = No, 1 = Yes",0%,,Insider-threat behavioural indicator.
+Staff_Access (staff_access_investigation_linked.csv),has_medical_history,Integer (binary),Whether the employee has a flagged medical history record.,0,"0 = No, 1 = Yes",0%,,"Insider-threat behavioural indicator; sensitive field, access-restricted."
+Staff_Access (staff_access_investigation_linked.csv),employee_origin_country,String (categorical),Employee's country of origin.,Israel,Country name,0%,,
+Staff_Access (staff_access_investigation_linked.csv),total_printed_pages,Integer,Total pages printed by the employee (activity log).,1,>= 0,0%,,Insider-threat behavioural feature.
+Staff_Access (staff_access_investigation_linked.csv),num_printed_pages_off_hours,Integer,Pages printed outside normal working hours.,0,>= 0,0%,,Insider-threat behavioural feature.
+Staff_Access (staff_access_investigation_linked.csv),total_files_burned,Integer,Total files written to removable/optical media.,34,>= 0,0%,,Insider-threat behavioural feature (data-exfiltration signal).
+Staff_Access (staff_access_investigation_linked.csv),burned_from_other,Integer (binary),Whether files were burned from another user's workstation.,0,"0 = No, 1 = Yes",0%,,Insider-threat behavioural feature.
+Staff_Access (staff_access_investigation_linked.csv),is_abroad,Integer (binary),Whether the employee was travelling abroad during the observation period.,0,"0 = No, 1 = Yes",0%,,Insider-threat behavioural feature.
+Staff_Access (staff_access_investigation_linked.csv),trip_day_number,Float,"Day number within a foreign trip, if applicable.",3.0,>= 0,0%,,0 when not travelling.
+Staff_Access (staff_access_investigation_linked.csv),hostility_country_level,Integer,Risk classification of the country visited/associated with.,1,0 - 3 (low-high),0%,,Insider-threat behavioural feature.
+Staff_Access (staff_access_investigation_linked.csv),num_entries,Integer,Number of physical building/campus entries recorded.,2,>= 0,0%,,Physical access-control feature.
+Staff_Access (staff_access_investigation_linked.csv),num_unique_campus,Integer,Number of distinct campuses the employee accessed.,1,>= 0,0%,,Physical access-control feature.
+Staff_Access (staff_access_investigation_linked.csv),late_exit_flag,Integer (binary),Whether the employee exited the building unusually late.,0,"0 = No, 1 = Yes",0%,,Physical access-control feature.
+Staff_Access (staff_access_investigation_linked.csv),entry_during_weekend,Integer (binary),Whether the employee entered the building on a weekend.,0,"0 = No, 1 = Yes",0%,,Physical access-control feature.
+Staff_Access (staff_access_investigation_linked.csv),Insider_Risk_Label,Integer (binary label),Ground-truth label: whether the employee is flagged as an insider risk.,1,"0 = No, 1 = Yes",0%,Target variable (insider-risk analysis),"133 of 1,200 agents flagged (11.1%)."
+Staff_Access (staff_access_investigation_linked.csv),Access_Time,Datetime (string),Timestamp of a recorded claim-record access event by this staff member.,2026-09-02 20:35:30,Timestamp,0%,,"One representative access event per agent, not a full multi-event access log (documented limitation)."
+Staff_Access (staff_access_investigation_linked.csv),Record_Accessed,String,Claim_ID of the record accessed during the logged event.,CLM005808,Pattern CLM + 6 digits or blank,2.6%,Join key -> Claims_KYC (Claim_ID),Blank rows indicate no logged access event for that agent.
+Staff_Access (staff_access_investigation_linked.csv),Override_Activity,String (categorical),"Type of system override performed, if any, during the access event.",Bypassed secondary verification,"No override recorded, Approved above authority limit, Unscheduled record access, Bypassed secondary verification",0%,,
+Staff_Access (staff_access_investigation_linked.csv),Investigation_Outcome,String (categorical),Outcome of any internal investigation into the staff member.,Unsubstantiated,"No findings, Unsubstantiated, Under investigation, Confirmed - insider risk",0%,,
+Documents_OCR (document_metadata_ocr_text_linked.csv),document_id,String,Unique identifier for the uploaded document.,DOC-00001,Pattern DOC-00001,0%,Primary key,
+Documents_OCR (document_metadata_ocr_text_linked.csv),Customer_ID,String,Customer associated with the document.,CUST017562,Pattern CUST + 6 digits,0%,"Join key -> Claims_KYC, Portal_Auth",
+Documents_OCR (document_metadata_ocr_text_linked.csv),Claim_ID,String,Claim the document was uploaded in support of.,CLM025767,Pattern CLM + 6 digits,0%,Join key -> Claims_KYC (Claim_ID),
+Documents_OCR (document_metadata_ocr_text_linked.csv),upload_time,Datetime (string),Date and time the document was uploaded.,2026-09-07 20:35:30,Timestamp,0%,,
+Documents_OCR (document_metadata_ocr_text_linked.csv),file_type,String (categorical),File format of the uploaded document.,DOCX,"DOCX, PDF, PNG, JPG",0%,,
+Documents_OCR (document_metadata_ocr_text_linked.csv),file_size_kb,Integer,File size in kilobytes.,172,"~ 100 - 4,500",0%,,
+Documents_OCR (document_metadata_ocr_text_linked.csv),document_type,String (categorical),Category of document content.,id_document,"claim_form, id_document, investigation_note, kyc_update",0%,Target variable (NLP classifier),Classified with 100% accuracy - see documented limitation on synthetic OCR text below.
+Documents_OCR (document_metadata_ocr_text_linked.csv),ocr_text,String (long text),Extracted OCR/text content of the document.,NATIONAL IDENTITY DOCUMENT. Full Name: Allison Hill...,"Free text, template-generated",0%,,Synthetically generated from fixed templates per document_type - not real scanned OCR (documented limitation in nlp_report.txt).
+Documents_OCR (document_metadata_ocr_text_linked.csv),duplicate_group_id,String,ID grouping documents with near-identical/templated content.,DUPGRP-001,Pattern DUPGRP-### or blank,65.0%,,Blank = document is not part of a detected duplicate cluster.
+Documents_OCR (document_metadata_ocr_text_linked.csv),linked_identity_change,Integer (binary),Whether this document's claim also had an identity/KYC change.,1,"0 = No, 1 = Yes",0%,,77 of 220 documents linked to an identity-changed claim.
+Documents_OCR (document_metadata_ocr_text_linked.csv),document_similarity_score,Float,"Text-similarity score against other documents (0 = unique, 1 = identical).",0.687,0.0 - 1.0,0%,,Computed via text-similarity analysis in the NLP module.
+Documents_OCR (document_metadata_ocr_text_linked.csv),document_similarity_flag,String (categorical),Banded version of document_similarity_score.,HIGH,"LOW, MEDIUM, HIGH",0%,,53 documents flagged HIGH similarity.
+Portal_Auth (portal_authentication_device_data.csv),log_id,String,Unique identifier for the login event.,AUTH-000001,Pattern AUTH-000001,0%,Primary key,
+Portal_Auth (portal_authentication_device_data.csv),Customer_ID,String,Customer who performed the login.,CUST000001,Pattern CUST + 6 digits,0%,"Join key -> Claims_KYC, Documents_OCR","18,409 unique customers across 42,597 events (avg. 2.3 logins/customer)."
+Portal_Auth (portal_authentication_device_data.csv),login_time,Datetime (string),Date and time of the login attempt.,2026-08-30 13:14:08,Timestamp,0%,,
+Portal_Auth (portal_authentication_device_data.csv),device_id,String,Identifier of the device used to log in.,DEV-D7E805DA,Pattern DEV-########,0%,,
+Portal_Auth (portal_authentication_device_data.csv),new_device_flag,Integer (binary),Whether this device had not been seen for this customer before.,1,"0 = No, 1 = Yes",0%,Key UBA feature,Mean rate across customers ~22.4%.
+Portal_Auth (portal_authentication_device_data.csv),ip_address,String,IP address of the login attempt.,149.138.195.222,IPv4 address,0%,,Synthetic; not a real customer IP.
+Portal_Auth (portal_authentication_device_data.csv),location_city,String (categorical),City the login was geolocated to.,Katima Mulilo,Namibian city name,0%,,
+Portal_Auth (portal_authentication_device_data.csv),location_unusual_flag,Integer (binary),Whether the login location is unusual for this customer's history.,0,"0 = No, 1 = Yes",0%,Key UBA feature,Mean rate ~17.5%.
+Portal_Auth (portal_authentication_device_data.csv),network_type,String (categorical),Type of network the login originated from.,Public Wi-Fi,"Public Wi-Fi, Mobile Data, Home Wi-Fi, VPN",0%,,
+Portal_Auth (portal_authentication_device_data.csv),authentication_result,String (categorical),Outcome of the authentication attempt.,Success,"Success, Failed then Success",0%,,
+Portal_Auth (portal_authentication_device_data.csv),failed_attempts_before_success,Integer,Number of failed login attempts before this successful one.,0,0 - 4,0%,Key UBA feature,Mean ~0.41 across all events.
+Portal_Auth (portal_authentication_device_data.csv),off_hours_login_flag,Integer (binary),Whether the login occurred outside standard business hours (22:00-06:00).,0,"0 = No, 1 = Yes",0%,,12.1% of all logins are off-hours.
